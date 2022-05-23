@@ -46,7 +46,11 @@ class XDBShowController extends Controller
             $table->count = DB::table($table->name)->count();
         }
 
-        return view('xDBShow::index', [ 'data' => $tables ]);
+        $databaseName = \DB::connection()->getDatabaseName();
+        $databaseName = explode('/', $databaseName);
+        $databaseName = end($databaseName);
+
+        return view('xDBShow::index', [ 'databaseName' => $databaseName, 'data' => $tables ]);
     }
     
     public function show(Request $request, $tableName)

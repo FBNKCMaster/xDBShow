@@ -9,7 +9,7 @@
 @section('main')
   <main class="flex flex-1 items-center p-2">
     <div class="container flex-1 mx-auto">
-      <h1 class="text-4xl uppercase">Tables</h1>
+      <h1 class="text-4xl uppercase">{{ $databaseName }}'s Tables</h1>
       <hr class="bg-gray-200 my-4">
       <div class="flex flex-col space-y-1">
         @foreach ($data as $table)

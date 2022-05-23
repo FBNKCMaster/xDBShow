@@ -1,5 +1,5 @@
 		<footer class="border-t flex p-1 justify-center space-x-2 text-xs">
-			<span>&copy;{{ date('Y') }} xDBShow</span>
+			<span>&copy;{{ date('Y') }} <a href="https://github.com/FBNKCMaster/xDBShow" target="_blank">xDBShow</a></span>
 			<span>|</span>
 			<span>Made with</span>
 			<span>

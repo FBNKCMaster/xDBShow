@@ -24,33 +24,31 @@ class ServiceProvider extends Base
         //$this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->registerRoutes();
 
-        $this->publishes([
-            __DIR__.'/../../public' => public_path('fbnkcmaster/xdbshow'),
-        ], 'xdbshow');
-
-        //if ($this->app->runningInConsole()) {
-        //    $this->publishes([
-        //        __DIR__.'/../../config/config.php' => config_path('xDBShow.php'),
-        //    ], 'config');
+        if ($this->app->runningInConsole()) {
+            // Publishing config.
+            // php artisan vendor:publish --provider="FBNKCMaster\xDBShow\Providers\ServiceProvider" --tag="config"
+            $this->publishes([
+                __DIR__.'/../../config/config.php' => config_path('xDBShow.php'),
+            ], 'config');
 
             // Publishing the views.
             /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/FBNKCMaster/xDBShow'),
+                __DIR__.'/../resources/views' => resource_path('views/fbnkcmaster/xdbshow'),
             ], 'views');*/
 
             // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('FBNKCMaster/xDBShow'),
-            ], 'assets');*/
+            $this->publishes([
+                __DIR__.'/../../public' => public_path('fbnkcmaster/xdbshow'),
+            ], 'xdbshow');
 
             // Publishing the translation files.
             /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/FBNKCMaster/xDBShow'),
+                __DIR__.'/../resources/lang' => resource_path('lang/fbnkcmaster/xdbshow'),
             ], 'lang');*/
 
             // Registering package commands.
             // $this->commands([]);
-        //}
+        }
     }
 
     /**
@@ -59,7 +57,7 @@ class ServiceProvider extends Base
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'xDBShow');
+        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'xdbshow');
 
         // Register the main class to use with the facade
         /* $this->app->singleton('xDBShow', function () {
